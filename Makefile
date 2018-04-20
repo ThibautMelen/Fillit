@@ -6,7 +6,7 @@
 #    By: jroussel <jroussel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/12 13:25:33 by jroussel          #+#    #+#              #
-#    Updated: 2018/04/20 16:19:01 by jroussel         ###   ########.fr        #
+#    Updated: 2018/04/20 22:48:36 by jroussel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,8 @@ SRCS	= main.c\
 		  file.c\
 		  check.c\
 		  parse.c\
+		  tidy.c\
+		  reduce.c\
 		  print.c
 
 OBJ_DIR = objs

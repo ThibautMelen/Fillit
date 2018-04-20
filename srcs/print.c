@@ -6,24 +6,24 @@
 /*   By: jroussel <jroussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/15 10:56:53 by jroussel          #+#    #+#             */
-/*   Updated: 2018/04/20 17:49:11 by jroussel         ###   ########.fr       */
+/*   Updated: 2018/04/20 21:28:39 by jroussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
 
-void	print_tetrimos(int **tetrimos)
+void	print_tetriminos(t_triminos *tetriminos)
 {
 	int	x;
 	int	y;
 
 	y = 0;
-	while (y < 4)
+	while (y < tetriminos->height)
 	{
 		x = 0;
-		while (x < 4)
+		while (x < tetriminos->width)
 		{
-			ft_putchar(tetrimos[x][y] ? '#' : '.');
+			ft_putchar(tetriminos->data[x][y] ? '#' : '.');
 			x++;
 		}
 		ft_putchar('\n');
@@ -38,22 +38,22 @@ void	print_tetris(t_list *tetris)
 	tmp = tetris;
 	while (tmp != NULL)
 	{
-		print_tetrimos((int **)tmp->content);
+		print_tetriminos((t_triminos *)tmp->content);
 		if ((tmp = tmp->next) != NULL)
 			ft_putchar('\n');
 	}
 }
 
-void	print_solution(int **tab, int map_size)
+void	print_solution(int **tab, int size)
 {
 	int	x;
 	int	y;
 
 	y = 0;
-	while (y < map_size)
+	while (y < size)
 	{
 		x = 0;
-		while (x < map_size)
+		while (x < size)
 		{
 			if (tab[x][y] == 0)
 				ft_putchar('.');
