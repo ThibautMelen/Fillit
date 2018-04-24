@@ -6,7 +6,7 @@
 /*   By: jroussel <jroussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/12 11:20:34 by jroussel          #+#    #+#             */
-/*   Updated: 2018/04/20 23:02:07 by jroussel         ###   ########.fr       */
+/*   Updated: 2018/04/24 19:40:52 by jroussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,63 +23,78 @@
 # include <stdio.h> // !!!!!
 
 # define BUFF_SIZE 42
-# define ASCII content_size
-
-# define TRUE 1
-# define FALSE 0
-
-# define ELEMENT 1
 
 # define NO_ERROR 0
 # define OPEN_FILE_ERROR -1
 # define READ_FILE_ERROR -2
-# define CONTENT_ERROR -3
+# define BUFF_ERROR -3
+# define CONTENT_ERROR -4
 # define MALLOC_ERROR -42
 
-typedef struct	s_tetriminos
+typedef struct	s_triminos
 {
-	int	**data;
-	int	width;
-	int	height;
+	char	**data;
+	int		width;
+	int		height;
+	char	value;
 }				t_triminos;
+typedef struct	s_map
+{
+	char	**data;
+	int		size;
+}				t_map;
 
 /*
-** Util
+** Ouvre le fichier 'path'
+*/
+int				open_file(char *path);
+/*
+** Lit le contenue du ficiher lie a 'fd'
+*/
+char			*read_file(int fd);
+/*
+** Quite le programme avec comme code d'erreur 'status'
 */
 void			exit_program(int status);
+/*
+** Affiche l'usage du programme
+*/
 void			show_usage(const char *name);
-
 /*
-** File
+** Verifie si la structure de 'content' est correcte
 */
-int				open_file(const char *path);
-char			*read_file(int fd);
-
+t_list			*check(char *content);
 /*
-** Check
+** Transforme une liste de string en liste de t_triminos
 */
-t_list			*check_content(char *content);
-
+t_list			*parse(t_list *list);
 /*
-** Parse
+** Deplace le tetriminos en haut a gauche et reduit sa taille
 */
-t_list			*parse_tetris(t_list *list);
-
+void			reduce_tetriminos(t_triminos *tetri);
 /*
-** Tidy
+** Free l'ancienne map
 */
-void			tidy_tetriminos(t_triminos *tetriminos);
-
+void			free_map(t_map *map);
 /*
-** Reduce
+** Cree une nouvelle map de taille 'size'
 */
-void			reduce_tetriminos(t_triminos *tetriminos);
-
+t_map			*map_new(int size);
 /*
-** Print
+** Verifie et place 'tetri' sur la map a la position(x, y)
 */
-void			print_tetriminos(t_triminos *tetriminos);
-void			print_tetris(t_list *tetris);
-void			print_solution(int **tetris, int size);
+int				place(t_triminos *tetri, t_map *map, int x, int y);
+/*
+** Comme 'place()' mais avec un charactere 'c'
+*/
+void			set_piece(t_triminos *tetri, t_map *map, int x, int y, char c);
+/*
+** Place tous les tetriminos dans 'list' dans le plus petit carre
+*/
+t_map			*solve(t_list *list);
+/*
+** Affiche la map resolue
+*/
+void	print_map(t_map *map);
 
 #endif

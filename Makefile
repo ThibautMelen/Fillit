@@ -6,24 +6,25 @@
 #    By: jroussel <jroussel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/12 13:25:33 by jroussel          #+#    #+#              #
-#    Updated: 2018/04/20 22:48:36 by jroussel         ###   ########.fr        #
+#    Updated: 2018/04/24 19:28:54 by jroussel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= fillit
 INC		= includes
-SRC_DIR = srcs
+SRC_DIR = src
 
 SRCS	= main.c\
-		  util.c\
 		  file.c\
+		  util.c\
 		  check.c\
 		  parse.c\
-		  tidy.c\
+		  print.c\
 		  reduce.c\
-		  print.c
+		  map.c\
+		  solve.c
 
-OBJ_DIR = objs
+OBJ_DIR = obj
 OBJS	= $(SRCS:.c=.o)
 CC		= gcc
 CFLAGS	= #-Wall -Werror -Wextra
