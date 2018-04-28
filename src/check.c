@@ -6,7 +6,7 @@
 /*   By: jroussel <jroussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 12:13:28 by jroussel          #+#    #+#             */
-/*   Updated: 2018/04/28 11:41:59 by jroussel         ###   ########.fr       */
+/*   Updated: 2018/04/28 18:56:45 by jroussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,8 +123,7 @@ static void		check_list(t_list *list)
 				amount++;
 			}
 		}
-		if (amount != 4)
-			exit_program(CONTENT_ERROR);
+		check_amount_sum(amount, sum);
 		list = list->next;
 	}
 }
@@ -135,7 +134,7 @@ t_list			*check(char *content)
 	t_list	*list;
 
 	count = newline_count(content);
-	if ((count * 20 + (count - 1)) != ft_strlen(content))
+	if ((count * 20 + (count - 1)) != (int)ft_strlen(content))
 		exit_program(CONTENT_ERROR);
 	list = check_struct(content);
 	free(content);

@@ -6,7 +6,7 @@
 /*   By: jroussel <jroussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/12 11:20:34 by jroussel          #+#    #+#             */
-/*   Updated: 2018/04/28 11:49:14 by jroussel         ###   ########.fr       */
+/*   Updated: 2018/04/28 12:30:11 by jroussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@
 # define BUFF_ERROR -3
 # define CONTENT_ERROR -4
 # define MALLOC_ERROR -42
-
-# include <stdio.h>
 
 typedef struct	s_triminos
 {
@@ -73,6 +71,10 @@ t_point			new_point(int x, int y);
 ** Verifie le contenue de du char[i + j] de content
 */
 void			check_content(char *content, int i, int y);
+/*
+** Verifie si le nombre le block et la sommes des blocks sont correctes
+*/
+void			check_amount_sum(int amount, int sum);
 /*
 ** Verifie si la structure de 'content' est correcte
 */
