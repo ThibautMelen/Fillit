@@ -6,7 +6,7 @@
 /*   By: jroussel <jroussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 17:10:45 by jroussel          #+#    #+#             */
-/*   Updated: 2018/04/24 18:42:37 by jroussel         ###   ########.fr       */
+/*   Updated: 2018/04/28 11:36:51 by jroussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static void	set_height(t_triminos *tetri)
 {
 	int	x;
 	int	y;
-	
+
 	y = 0;
 	while (y < 4)
 	{

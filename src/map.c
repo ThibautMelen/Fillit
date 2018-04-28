@@ -6,7 +6,7 @@
 /*   By: jroussel <jroussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 18:53:07 by jroussel          #+#    #+#             */
-/*   Updated: 2018/04/24 19:26:06 by jroussel         ###   ########.fr       */
+/*   Updated: 2018/04/28 11:45:41 by jroussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ t_map	*map_new(int size)
 
 int		place(t_triminos *tetri, t_map *map, int x, int y)
 {
-	int i;
-	int j;
+	int		i;
+	int		j;
 
 	j = 0;
 	while (j < tetri->height)
@@ -67,11 +67,11 @@ int		place(t_triminos *tetri, t_map *map, int x, int y)
 		}
 		j++;
 	}
-	set_piece(tetri, map, x, y, tetri->value);
+	set_piece(tetri, map, new_point(x, y), tetri->value);
 	return (1);
 }
 
-void	set_piece(t_triminos *tetri, t_map *map, int x, int y, char c)
+void	set_piece(t_triminos *tetri, t_map *map, t_point p, char c)
 {
 	int i;
 	int j;
@@ -83,7 +83,7 @@ void	set_piece(t_triminos *tetri, t_map *map, int x, int y, char c)
 		while (i < tetri->width)
 		{
 			if (tetri->data[i][j] == '#')
-				map->data[y + j][x + i] = c;
+				map->data[p.y + j][p.x + i] = c;
 			i++;
 		}
 		j++;

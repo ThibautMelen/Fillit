@@ -6,7 +6,7 @@
 /*   By: jroussel <jroussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/12 11:20:34 by jroussel          #+#    #+#             */
-/*   Updated: 2018/04/24 19:40:52 by jroussel         ###   ########.fr       */
+/*   Updated: 2018/04/28 11:49:14 by jroussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@
 # include <sys/stat.h>
 # include <fcntl.h>
 
-# include <stdio.h> // !!!!!
-
 # define BUFF_SIZE 42
 
 # define NO_ERROR 0
@@ -30,6 +28,8 @@
 # define BUFF_ERROR -3
 # define CONTENT_ERROR -4
 # define MALLOC_ERROR -42
+
+# include <stdio.h>
 
 typedef struct	s_triminos
 {
@@ -43,6 +43,11 @@ typedef struct	s_map
 	char	**data;
 	int		size;
 }				t_map;
+typedef struct	s_point
+{
+	int	x;
+	int	y;
+}				t_point;
 
 /*
 ** Ouvre le fichier 'path'
@@ -60,6 +65,14 @@ void			exit_program(int status);
 ** Affiche l'usage du programme
 */
 void			show_usage(const char *name);
+/*
+** Cree un nouveau t_point et socke x et y dedant
+*/
+t_point			new_point(int x, int y);
+/*
+** Verifie le contenue de du char[i + j] de content
+*/
+void			check_content(char *content, int i, int y);
 /*
 ** Verifie si la structure de 'content' est correcte
 */
@@ -87,7 +100,7 @@ int				place(t_triminos *tetri, t_map *map, int x, int y);
 /*
 ** Comme 'place()' mais avec un charactere 'c'
 */
-void			set_piece(t_triminos *tetri, t_map *map, int x, int y, char c);
+void			set_piece(t_triminos *tetri, t_map *map, t_point p, char c);
 /*
 ** Place tous les tetriminos dans 'list' dans le plus petit carre
 */
@@ -95,6 +108,6 @@ t_map			*solve(t_list *list);
 /*
 ** Affiche la map resolue
 */
-void	print_map(t_map *map);
+void			print_map(t_map *map);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jroussel <jroussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 18:43:31 by jroussel          #+#    #+#             */
-/*   Updated: 2018/04/24 19:33:29 by jroussel         ###   ########.fr       */
+/*   Updated: 2018/04/28 12:03:07 by jroussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int	solve_map(t_map *map, t_list *list)
 				if (solve_map(map, list->next))
 					return (1);
 				else
-					set_piece(tetri, map, x, y, '.');
+					set_piece(tetri, map, new_point(x, y), '.');
 			}
 			x++;
 		}

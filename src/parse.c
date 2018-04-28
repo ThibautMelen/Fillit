@@ -6,7 +6,7 @@
 /*   By: jroussel <jroussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 14:34:16 by jroussel          #+#    #+#             */
-/*   Updated: 2018/04/24 19:31:25 by jroussel         ###   ########.fr       */
+/*   Updated: 2018/04/28 11:29:59 by jroussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** Remplie le tetriminos avec le contnue de 'content'
 */
 
-static void			*fill_tetriminos(char *content, t_triminos *tetri)
+static void			fill_tetriminos(char *content, t_triminos *tetri)
 {
 	int	i;
 	int	j;

@@ -6,7 +6,7 @@
 /*   By: jroussel <jroussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 11:33:39 by jroussel          #+#    #+#             */
-/*   Updated: 2018/04/24 14:33:43 by jroussel         ###   ########.fr       */
+/*   Updated: 2018/04/28 12:04:51 by jroussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ static void	check_buff(const char *buff)
 {
 	int i;
 
+	i = 0;
 	while (buff[i] != '\0')
 	{
 		if (!(buff[i] == '#' || buff[i] == '.' || buff[i] == '\n'))
@@ -43,7 +44,7 @@ int			open_file(char *path)
 char		*read_file(int fd)
 {
 	char	*content;
-	char	*buff = malloc(BUFF_SIZE + 1); // Change : buff[BUFF_SIZE + 1];
+	char	buff[BUFF_SIZE + 1];
 	int		result;
 	char	*tmp;
 

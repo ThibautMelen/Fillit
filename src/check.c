@@ -6,7 +6,7 @@
 /*   By: jroussel <jroussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 12:13:28 by jroussel          #+#    #+#             */
-/*   Updated: 2018/04/24 15:58:37 by jroussel         ###   ########.fr       */
+/*   Updated: 2018/04/28 11:41:59 by jroussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,7 @@ static t_list	*check_struct(char *content)
 	j = 0;
 	while (content[i] != '\0')
 	{
-		if (i % 5 == 4 && content[i + j] != '\n')
-			exit_program(CONTENT_ERROR);
-		if (i % 5 != 4 && !(content[i + j] == '.' || content[i + j] == '#'))
-			exit_program(CONTENT_ERROR);
+		check_content(content, i, j);
 		if (++i == 20)
 		{
 			tmp = ft_strsub(content, j, 20);
@@ -69,7 +66,7 @@ static t_list	*check_struct(char *content)
 }
 
 /*
-** Compte de nombre de '#' autour de x
+** Compte le nombre de '#' autour de x
 */
 
 static int		sides_count(int x, char *str)
